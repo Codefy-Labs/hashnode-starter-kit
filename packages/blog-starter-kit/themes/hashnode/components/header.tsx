@@ -23,7 +23,7 @@ export const Header = (props: Props) => {
 		>
 			 <style>
         {`
-          .customerheader {
+          .customerheader,.blog-footer-area {
             background: #292A2F !important;
           }
 					.blog-nav-text{
@@ -35,6 +35,10 @@ export const Header = (props: Props) => {
 
             color: #e47667;
           }
+					.whitecolor{
+						color:white;
+					}
+
         `}
       </style>
 			<div className="container mx-auto px-2 md:px-4 2xl:px-10">
