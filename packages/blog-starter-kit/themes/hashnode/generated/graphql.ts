@@ -895,6 +895,19 @@ export type DarkModePreferences = {
   logo?: Maybe<Scalars['String']['output']>;
 };
 
+export type DeleteRoleBasedInviteInput = {
+  /** The ID of the role based invite. */
+  inviteId: Scalars['ID']['input'];
+  publicationId: Scalars['ID']['input'];
+};
+
+/** Response to deleting a role based invite. */
+export type DeleteRoleBasedInvitePayload = {
+  __typename?: 'DeleteRoleBasedInvitePayload';
+  /** Deleted invite. */
+  invite: RoleBasedInvite;
+};
+
 export type DeleteWebhookPayload = {
   __typename?: 'DeleteWebhookPayload';
   webhook?: Maybe<Webhook>;
@@ -1512,6 +1525,8 @@ export type Mutation = {
   /** Creates a new series. */
   createSeries: CreateSeriesPayload;
   createWebhook: CreateWebhookPayload;
+  /** Deletes a role based invite. */
+  deleteRoleBasedInvite: DeleteRoleBasedInvitePayload;
   deleteWebhook: DeleteWebhookPayload;
   /** Likes a comment. */
   likeComment: LikeCommentPayload;
@@ -1592,6 +1607,11 @@ export type MutationCreateSeriesArgs = {
 
 export type MutationCreateWebhookArgs = {
   input: CreateWebhookInput;
+};
+
+
+export type MutationDeleteRoleBasedInviteArgs = {
+  input: DeleteRoleBasedInviteInput;
 };
 
 
@@ -2614,11 +2634,23 @@ export type PublicationMember = Node & {
   __typename?: 'PublicationMember';
   /** The ID of the publication member. */
   id: Scalars['ID']['output'];
+  /**
+   * Denotes if the member is public or private
+   * A private member is not visible on members page
+   */
+  privacyState?: Maybe<PublicationMemberPrivacyState>;
   /** The role of the user in the publication. */
   role: UserPublicationRole;
   /** The user who is a member of the publication. */
   user?: Maybe<User>;
 };
+
+export enum PublicationMemberPrivacyState {
+  /** The member is private and not visible on the members page. */
+  Private = 'PRIVATE',
+  /** The member is public and visible on the members page. */
+  Public = 'PUBLIC'
+}
 
 /** Contains the publication's navbar items. */
 export type PublicationNavbarItem = {
@@ -3180,6 +3212,16 @@ export type SearchPostsOfPublicationFilter = {
   publicationId: Scalars['ObjectId']['input'];
   /** The query to be searched in post. */
   query: Scalars['String']['input'];
+};
+
+export type SearchUser = Node & {
+  __typename?: 'SearchUser';
+  /** ID of the user. */
+  id: Scalars['ID']['output'];
+  /** Signifies if the user has a pending invite to the publication. Returned when the filter has pendingInviteStatus set to true. */
+  pendingInviteStatus?: Maybe<Scalars['Boolean']['output']>;
+  /** User node containing the user information. */
+  user: User;
 };
 
 /**
