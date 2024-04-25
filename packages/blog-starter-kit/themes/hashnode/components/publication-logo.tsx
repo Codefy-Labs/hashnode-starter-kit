@@ -44,7 +44,8 @@ const CustomLogo = ({
   isPostPage?: boolean | null;
 }) => {
   const blogTitle = generateBlogTitleWithoutDisplayTitle(publication);
-
+  const mainSiteUrl = process.env.MAIN_SITE_URL || 'default-url';
+console.log(mainSiteUrl);
   return (
     <h1 className="blog-main-logo">
       <Link
@@ -53,8 +54,8 @@ const CustomLogo = ({
           logoSizes[size],
         )}
         aria-label={`${blogTitle} home page`}
+        href={`https://www.codefylabs.com?source=top_nav_blog_home`}
         // href={`/${isPostPage ? '?source=top_nav_blog_home' : ''}`}
-        href={`${process.env.MAIN_SITE_URL ? process.env.MAIN_SITE_URL : ''}`}
       >
         <CustomImage
           priority
@@ -131,7 +132,6 @@ function PublicationLogo(props: PublicationLogoProps) {
   const useLogo = false || preferences.logo;
   if (useLogo) {
     const logoSrc = false ? preferences.darkMode?.logo : preferences.logo;
-    console.log(logoSrc);
     return (
       <CustomLogo
         publication={publication}
