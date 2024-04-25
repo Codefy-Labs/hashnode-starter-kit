@@ -53,7 +53,8 @@ const CustomLogo = ({
           logoSizes[size],
         )}
         aria-label={`${blogTitle} home page`}
-        href={`/${isPostPage ? '?source=top_nav_blog_home' : ''}`}
+        // href={`/${isPostPage ? '?source=top_nav_blog_home' : ''}`}
+        href={`${process.env.MAIN_SITE_URL ? process.env.MAIN_SITE_URL : ''}`}
       >
         <CustomImage
           priority
@@ -130,6 +131,7 @@ function PublicationLogo(props: PublicationLogoProps) {
   const useLogo = false || preferences.logo;
   if (useLogo) {
     const logoSrc = false ? preferences.darkMode?.logo : preferences.logo;
+    console.log(logoSrc);
     return (
       <CustomLogo
         publication={publication}
