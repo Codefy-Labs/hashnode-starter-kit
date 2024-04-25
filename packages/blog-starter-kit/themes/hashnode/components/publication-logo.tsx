@@ -54,7 +54,7 @@ console.log(mainSiteUrl);
           logoSizes[size],
         )}
         aria-label={`${blogTitle} home page`}
-        href={`https://www.codefylabs.com?source=top_nav_blog_home`}
+        href={`https://www.codefylabs.com`}
         // href={`/${isPostPage ? '?source=top_nav_blog_home' : ''}`}
       >
         <CustomImage
