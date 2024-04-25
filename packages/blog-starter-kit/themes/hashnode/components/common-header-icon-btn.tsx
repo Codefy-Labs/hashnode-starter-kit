@@ -44,7 +44,12 @@ const CommonHeaderIconBtn = (props: ICommonHeaderIconBtn) => {
   const { label, buttonClassName, tooltipClassName, tooltipText } = variants[variant];
   const btnStyles = getCommonBtnStyles();
 
-  return (
+  return (<>
+  <style>
+        {`.blog-bars-button,.blog-back-to-home-button,.blog-search-button {
+          color: white;
+        }`}
+      </style>
     <HeaderTooltip tooltipClassName={tooltipClassName} tooltipText={tooltipText}>
       <button
         type="button"
@@ -56,6 +61,7 @@ const CommonHeaderIconBtn = (props: ICommonHeaderIconBtn) => {
         {children}
       </button>
     </HeaderTooltip>
+    </>
   );
 };
 

@@ -23,9 +23,7 @@ export const Header = (props: Props) => {
 		>
 			 <style>
         {`
-          .customerheader,.blog-footer-area {
-            background: #292A2F !important;
-          }
+
 					.blog-nav-text{
 						color:white;
 					}
@@ -36,7 +34,7 @@ export const Header = (props: Props) => {
             color: #e47667;
           }
 					.whitecolor{
-						color:white;
+						color:white !important;
 					}
 
         `}

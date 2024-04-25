@@ -30,15 +30,15 @@ function PublicationFooter(props: any) {
       )}
       <div className="blog-footer-credits flex flex-col items-center justify-center">
         <div className="mb-12 flex flex-col flex-wrap items-center">
-          <p className="mb-2 text-slate-600 dark:text-slate-300 whitecolor">
+        <p className="mb-2 text-slate-600 dark:text-slate-300 whitecolor" style={{ color: 'white' }}>
             &copy;{new Date().getFullYear()} {title || `${authorName}'s Blog`}
           </p>
           <div className="flex flex-row items-center text-slate-600 dark:text-slate-300">
-            <a href="https://hashnode.com/privacy?source=blog-footer" className="mx-2 underline whitecolor" >
+            <a href="https://hashnode.com/privacy?source=blog-footer" className="mx-2 underline whitecolor" style={{ color: 'white' }} >
               Privacy policy
             </a>
             <span className="font-extrabold text-black opacity-20 dark:text-white">&middot;</span>
-            <a className="mx-2 underline whitecolor" href="https://hashnode.com/terms?source=blog-footer">
+            <a className="mx-2 underline whitecolor" style={{ color: 'white' }} href="https://hashnode.com/terms?source=blog-footer">
               Terms
             </a>
           </div>
@@ -47,7 +47,7 @@ function PublicationFooter(props: any) {
           <>
             {logo && (
               <div className="flex flex-col items-center">
-                <Link href="/" className="relative block h-10 w-40">
+                <Link href="https://www.codefylabs.com/" className="relative block h-10 w-40">
                   <Image
                     layout="fill"
                     alt={title || `${authorName}'s ${isTeam ? 'team' : ''} blog`}

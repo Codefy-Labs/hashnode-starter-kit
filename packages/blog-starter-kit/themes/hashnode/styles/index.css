@@ -5,7 +5,21 @@
 .article-width {
   width: 800px;
 }
+.customerheader,.blog-header,.blog-footer-area {
+  background: #292A2F !important;
+}
+.blog-nav-text{
+  color:white;
+}
+.blog-nav-text:hover {
 
+  background-color: transparent;
+
+  color: #e47667;
+}
+.whitecolor,{
+  color:white;
+}
 @media (max-width: 800px) {
   .article-width {
     width: 100% !important;
